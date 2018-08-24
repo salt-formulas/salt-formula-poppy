@@ -20,7 +20,8 @@ Poppy Ergo JR
     poppy:
       creature:
         enabled: true
-        kind: ergo-jr
+        name: ergo-jr
+        kind: poppy-ergo-jr
 
 Poppy Humanoid
 
@@ -29,13 +30,44 @@ Poppy Humanoid
     poppy:
       creature:
         enabled: true
-        kind: humanoid
+        name: humanoid
+        kind: poppy-humanoid
+
+Customised Poppy creature
+
+.. code-block:: yaml
+
+    poppy:
+      creature:
+        enabled: true
+        name: customised
+        kind: poppy-ergo-jr
+        source:
+          master:
+            engine: git
+            address: https://github.com/poppy-project/puppet-master.git
+            revision: master
+          monitor:
+            engine: git
+            address: https://github.com/poppy-project/poppy-monitor.git
+            revision: master
+          snap:
+            engine: git
+            address: https://github.com/jmoenig/Snap--Build-Your-Own-Blocks.git
+            revision: 4.2.1.3
+          notebooks:
+            engine: git
+            address: https://github.com/poppy-project/community-notebooks
+            revision: master
 
 
 References
 ==========
 
 * https://github.com/poppy-project/raspoppy
+* https://docs.poppy-project.org/
+* https://github.com/poppy-project/puppet-master
+* https://github.com/jmoenig/Snap--Build-Your-Own-Blocks
 
 
 Documentation and Bugs
