@@ -1,0 +1,12 @@
+{%- from "poppy/map.jinja" import creature with context %}
+# Fill in documentation details
+doc:
+  name: poppy
+  description: Some service info
+  role:
+    creature:
+      name: creature
+      param:
+        some_param:
+          name: "Some name"
+          value: "some value"

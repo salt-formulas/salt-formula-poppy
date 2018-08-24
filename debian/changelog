@@ -1,0 +1,5 @@
+salt-formula-poppy (2018.1) xenial; urgency=medium
+
+  * Initial release
+
+ -- Ales Komarek ales.komarek@newt.cz  Fri, 24 Aug 2018 10:57:19 BST

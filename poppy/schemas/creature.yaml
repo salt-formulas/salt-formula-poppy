@@ -1,0 +1,17 @@
+%YAML 1.1
+---
+"$schema": "http://json-schema.org/draft-06/schema#"
+title: poppy daemon role
+description: |
+  Poppy daemon, server role
+type: object
+additionalProperties: false
+
+required:
+  - enabled
+
+properties:
+  enabled:
+    description: |
+      Enables poppy service
+    type: boolean

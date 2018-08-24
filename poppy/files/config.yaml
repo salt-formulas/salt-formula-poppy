@@ -1,0 +1,17 @@
+{%- from "poppy/map.jinja" import creature with context %}
+robot:
+  name: {{ creature.name }}
+  creature: {{ creature.kind }}
+  camera: off
+
+info:
+  version: 1.0
+  logfile: {{ creature.dir.logs }}/puppet-master.log
+  board: {{ creature.board }}
+
+{#
+update:
+  url: https://raw.githubusercontent.com/poppy-project/raspoppy/master/auto-update.sh
+  logfile: $home/.install.log
+  lockfile: /tmp/poppy-update-pid.lock
+#}

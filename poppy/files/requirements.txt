@@ -1,0 +1,10 @@
+Flask>=0.10
+pyaml>=15.8
+requests>=2.9
+pypot>=3
+numpy
+scipy
+jupyter
+jupyter_contrib_nbextensions
+matplotlib
+explauto

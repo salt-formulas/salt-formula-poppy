@@ -1,0 +1,15 @@
+{%- from "poppy/map.jinja" import creature with context %}
+[Unit]
+Description=Poppy Master
+Wants=network-online.target
+After=network.target network-online.target
+[Service]
+PIDFile=/var/run/poppy-master.pid
+Environment="PATH={{ creature.dir.base }}/bin:$PATH"
+ExecStart={{ creature.dir.base }}/bin/python bouteillederouge.py
+User=poppy
+Group=poppy
+WorkingDirectory={{ creature.dir.base }}/master
+Type=simple
+[Install]
+WantedBy=multi-user.target

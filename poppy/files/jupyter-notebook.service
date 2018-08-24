@@ -1,0 +1,15 @@
+{%- from "poppy/map.jinja" import creature with context %}
+[Unit]
+Description=Jupyter Notebook
+Wants=network-online.target
+After=network.target network-online.target
+[Service]
+PIDFile=/var/run/jupyter-notebook.pid
+Environment="PATH=$PATH"
+ExecStart={{ creature.dir.base }}/bin/jupyter notebook
+User=poppy
+Group=poppy
+WorkingDirectory={{ creature.dir.notebooks }}
+Type=simple
+[Install]
+WantedBy=multi-user.target
