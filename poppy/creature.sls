@@ -26,7 +26,6 @@ poppy_dir:
   - names:
     - {{ creature.dir.logs }}
     - {{ creature.dir.jupyter }}
-    - {{ creature.dir.snap }}
   - mode: 700
   - makedirs: true
   - user: poppy
@@ -133,6 +132,52 @@ poppy_config:
   - mode: 644
   - require:
     - git: poppy_master_app
+  - watch_in:
+    - service: poppy_service
+
+poppy_snap_examples_file:
+  file.managed:
+  - name: {{ creature.dir.master }}/snap/Examples/poppy-demo.xml
+  - source: salt://poppy/files/poppy-demo.xml
+  - user: poppy
+  - mode: 644
+  - require:
+    - git: poppy_master_snap_plugin
+  - watch_in:
+    - service: poppy_service
+
+poppy_snap_examples_config:
+  file.managed:
+  - name: {{ creature.dir.master }}/snap/Examples/EXAMPLES
+  - source: salt://poppy/files/EXAMPLES
+  - template: jinja
+  - user: poppy
+  - mode: 644
+  - require:
+    - git: poppy_master_snap_plugin
+  - watch_in:
+    - service: poppy_service
+
+poppy_snap_libraries_file:
+  file.managed:
+  - name: {{ creature.dir.master }}/snap/libraries/poppy.xml
+  - source: salt://poppy/files/pypot-snap-blocks.xml
+  - user: poppy
+  - mode: 644
+  - require:
+    - git: poppy_master_snap_plugin
+  - watch_in:
+    - service: poppy_service
+
+poppy_libraries_config:
+  file.managed:
+  - name: {{ creature.dir.master }}/snap/libraries/LIBRARIES
+  - source: salt://poppy/files/LIBRARIES
+  - template: jinja
+  - user: poppy
+  - mode: 644
+  - require:
+    - git: poppy_master_snap_plugin
   - watch_in:
     - service: poppy_service
 
